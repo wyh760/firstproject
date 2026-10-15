@@ -9,8 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 // [추가 2026-10-08] React용 JSON API (조회, 생성, 수정, 삭제)
 @RestController
@@ -29,10 +27,11 @@ public class TopicApiController {
         return topicRepository.findAll().stream().map(TopicDto::from).toList();
     }
 
-    // 생성: POST /api/topics   body: {"title":"...","body":"..."}
+    // 생성: POST /api/topics   body: {"title":"...","body":"...","imageUrl":"..."}
     @PostMapping
     public ResponseEntity<TopicDto> create(@RequestBody TopicDto dto) {
-        Topic saved = topicRepository.save(new Topic(dto.title(), dto.body()));
+        // [수정 2026-10-15] 프론트에서 보낸 DTO의 imageUrl 값을 꺼내어 Topic 객체 생성 시 함께 저장
+        Topic saved = topicRepository.save(new Topic(dto.title(), dto.body(), dto.imageUrl()));
         return ResponseEntity.status(HttpStatus.CREATED).body(TopicDto.from(saved));
     }
 
@@ -42,7 +41,8 @@ public class TopicApiController {
     public ResponseEntity<TopicDto> update(@PathVariable Long id, @RequestBody TopicDto dto) {
         return topicRepository.findById(id)
                 .map(topic -> {
-                    topic.update(dto.title(), dto.body());
+                    // [수정 2026-10-15] 게시글 수정 요청 시 DTO에 담긴 imageUrl로 함께 업데이트 처리
+                    topic.update(dto.title(), dto.body(), dto.imageUrl());
                     return ResponseEntity.ok(TopicDto.from(topic));
                 })
                 .orElse(ResponseEntity.notFound().build());

@@ -21,27 +21,56 @@ INSERT INTO comment(article_id, nickname, body) VALUES(6, 'Park', '조깅');
 INSERT INTO comment(article_id, nickname, body) VALUES(6, 'Kim', '유튜브');
 INSERT INTO comment(article_id, nickname, body) VALUES(6, 'Choi', '독서');
 
+--
+-- -- ID 1번 데이터
+-- INSERT INTO TOPICS (ID, TITLE, BODY)
+-- VALUES (1, '스타벅스 왕십리', '토요일 사람 너무많아');
+--
+-- -- ID 2번 데이터
+-- INSERT INTO TOPICS (ID, TITLE, BODY)
+-- VALUES (2, '투썸은 한적해', '한적해서 썰렁해');
+--
+-- -- ID 3번 데이터
+-- INSERT INTO TOPICS (ID, TITLE, BODY)
+-- VALUES (3, '메가커피 불편해', '저가는 좋아 그런데 시끄러워');
+--
+-- -- ID 4번 데이터
+-- INSERT INTO TOPICS (ID, TITLE, BODY)
+-- VALUES (4, '동네카페', '동네 카페 눈치준');
+--
+-- -- ID 5번 데이터
+-- INSERT INTO TOPICS (ID, TITLE, BODY)
+-- VALUES (5, '동네 맛집 김밥...', '동네 맛집 김밥...맛있다는데 신규창업이라서');
+--
+-- -- ID 6번 데이터
+-- INSERT INTO TOPICS (ID, TITLE, BODY)
+-- VALUES (6, '경동시장 카페', '경동시장 카페가야하나');
 
- -- ID 1번 데이터
- INSERT INTO TOPICS (ID, TITLE, BODY)
- VALUES (1, '스타벅스 왕십리', '토요일 사람 너무많아');
 
- -- ID 2번 데이터
- INSERT INTO TOPICS (ID, TITLE, BODY)
- VALUES (2, '투썸은 한적해', '한적해서 썰렁해');
 
- -- ID 3번 데이터
- INSERT INTO TOPICS (ID, TITLE, BODY)
- VALUES (3, '메가커피 불편해', '저가는 좋아 그런데 시끄러워');
+-- (참고) 만약 테이블 생성 쿼리(DDL)가 따로 있다면 이미지 컬럼을 추가해 주어야 합니다.
+-- 예: IMAGE_URL VARCHAR(255)
 
- -- ID 4번 데이터
- INSERT INTO TOPICS (ID, TITLE, BODY)
- VALUES (4, '동네카페', '동네 카페 눈치준');
+-- ID 1번 데이터 (스타벅스)
+INSERT INTO TOPICS (ID, TITLE, BODY, IMAGE_URL)
+VALUES (1, '스타벅스 왕십리', '토요일 사람 너무많아', '/images/cafe1.png');
 
- -- ID 5번 데이터
- INSERT INTO TOPICS (ID, TITLE, BODY)
- VALUES (5, '동네 맛집 김밥...', '동네 맛집 김밥...맛있다는데 신규창업이라서');
+-- ID 2번 데이터 (투썸)
+INSERT INTO TOPICS (ID, TITLE, BODY, IMAGE_URL)
+VALUES (2, '투썸은 한적해', '한적해서 썰렁해', '/images/cafe2.png');
 
- -- ID 6번 데이터
- INSERT INTO TOPICS (ID, TITLE, BODY)
- VALUES (6, '경동시장 카페', '경동시장 카페가야하나');
+-- ID 3번 데이터 (메가커피)
+INSERT INTO TOPICS (ID, TITLE, BODY, IMAGE_URL)
+VALUES (3, '메가커피 불편해', '저가는 좋아 그런데 시끄러워', '/images/cafe3.png');
+
+-- ID 4번 데이터 (동네카페)
+INSERT INTO TOPICS (ID, TITLE, BODY, IMAGE_URL)
+VALUES (4, '동네카페', '동네 카페 눈치준', '/images/cafe4.png');
+
+-- ID 5번 데이터 (동네 맛집)
+INSERT INTO TOPICS (ID, TITLE, BODY, IMAGE_URL)
+VALUES (5, '동네 맛집 김밥...', '동네 맛집 김밥...맛있다는데 신규창업이라서', '/images/cafe5.png');
+
+-- ID 6번 데이터 (경동시장 카페)
+INSERT INTO TOPICS (ID, TITLE, BODY, IMAGE_URL)
+VALUES (6, '경동시장 카페', '경동시장 카페가야하나', '/images/cafe6.png');
